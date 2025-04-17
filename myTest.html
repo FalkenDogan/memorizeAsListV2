@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="pics/logo.png" type="image/png">
+</head>
+
+<body>
+  <div class="container" style="text-align: center;">
+    <h1>Welcome to Quiz App</h1>
+    <!-- Form to get Google Sheets link from the user -->
+    <div id="link-form">
+      <label for="sheet-link">Insert Google Sheets Link</label><br>
+      <input type="text" id="sheet-link" placeholder="https://docs.google.com/spreadsheets/d/...">
+      <br>
+      <button id="generate-json" class="button">Send</button>
+    </div>
+
+  </div>
+  <script src="sheetToJson.js"></script>
+</body>
+
+</html>

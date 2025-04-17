@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App Kullanım Kılavuzu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="pics/logo.png" type="image/png">
+</head>
+
+<body class="usage_body">
+    <div class="usage_container">
+        <h1>Quiz App Kullanım Kılavuzu</h1>
+        <h2>Giriş</h2>
+        <p>Quiz App, Google Sheets kullanarak kolayca quizler oluşturmanıza yardımcı olan bir uygulamadır. Bu kılavuz,
+            adım adım nasıl kullanılacağını açıklamaktadır.</p>
+
+        <h2>Adım 1: Google Sheets Hazırlığı</h2>
+        <ul>
+            <li><strong>Google Sheets</strong>'te yeni bir tablo oluşturun.</li>
+            <li><strong>A sütunu</strong>na sorularınızı yazın.</li>
+            <li><strong>C sütunu</strong>na doğru cevapları yazın.</li>
+            <li><strong>B sütunu</strong>na sadece <code>|</code> işareti (boru sembolü) koyun. </li>
+            <li><strong>Örnek sheet</strong> için linki tıklayın <a
+                    href="https://docs.google.com/spreadsheets/d/1Mk5XUzv9n3gf8g-YPPTsg3AoZdYypntan06YpM00-YY/edit?gid=0#gid=0"
+                    target="_blank">Link</a></li>
+
+        </ul>
+
+        <h2>Adım 2: Google Sheets Linkini Alın</h2>
+        <ul>
+            <li>Google Sheets belgenizi açın.</li>
+            <li>Sağ üst köşedeki "Paylaş" butonuna tıklayın ve "Bağlantıyı kopyala" seçeneğini seçin.</li>
+            <li>Linkin <strong>gid</strong> parametresini içerdiğinden emin olun (örneğin:
+                <strong>https://docs.google.com/spreadsheets/d/1aBcD.../edit?gid=1917887240#gid=1917887240</strong>).
+            </li>
+        </ul>
+
+        <h2>Adım 3: Quiz App Uygulamasını Kullanma</h2>
+        <ul>
+            <li><strong>Quiz App</strong> uygulamasını açın.</li>
+            <li>Ana sayfada, "Insert Google Sheets Link" alanına kopyaladığınız linki yapıştırın.</li>
+            <li>"Send" butonuna tıklayın.</li>
+        </ul>
+
+        <h2>Adım 4: Quiz Ayarları</h2>
+        <ul>
+            <li><strong>Soru Seçimi</strong> sayfasına yönlendirileceksiniz.</li>
+            <li>"Start Question" ve "End Question" alanlarına quizde yer almasını istediğiniz soru aralığını girin.</li>
+            <li>"Start Quiz" butonuna tıklayın.</li>
+        </ul>
+
+        <h2>Adım 5: Quiz Yapma</h2>
+        <ul>
+            <li><strong>Quiz</strong> sayfasında, sorular sırayla gösterilecektir.</li>
+            <li>Doğru cevabı seçin ve "Submit" butonuna tıklayın.</li>
+            <li>Bir sonraki soruya geçmek için "Next" butonuna tıklayın.</li>
+            <li>Quiz sonunda, sonuçlarınızı görebilirsiniz.</li>
+        </ul>
+
+        <h2>Ekstra Özellikler</h2>
+        <ul>
+            <li><strong>Show Answer</strong>: Yanlış cevaplarınızı ve doğru cevapları görebilirsiniz.</li>
+            <li><strong>Retry</strong>: Quiz'i yeniden başlatabilirsiniz.</li>
+            <li><strong>Exit</strong>: Ana sayfaya dönebilirsiniz.</li>
+        </ul>
+
+        <h2>Önemli Notlar</h2>
+        <ul>
+            <li>Bu program hiçbir şekilde<strong> kişisel verilere</strong> erişmemekte ve işlememektedir.</li>
+            <li>Bu programın database'i yoktur. Sorular sisteme kaydedilmemektedir. Program kapatılınca tüm veriler
+                silinmektedir.</li>
+            <li>Google sheet linki bilgisayar browserları ile akıllı telefon ve tabletlerdeki uygulamalarda farklı sheet
+                linki ('gid' numarası) üretmektedir</li>
+            <li>Eğer akıllı telefon veya tabletteki google drive veya google sheet uygulamasından link alacaksanız. Bu
+                durumda google sheet'in sadece ilk sekmesine (tab) liste oluşturun ve linkini alın.</li>
+            <li>Eğer bir bilgisayardaki bir browserdan google sheete bağlanıp link alacaksanız. Her sekmede bir liste
+                oluşturup sekmelerin linklerini ayrı ayrı kullanabilirsiniz.</li>
+        </ul>
+        <div style="text-align: center;">
+            <a rel="stylesheet" href="sheetToJson.html" class="button" style="text-decoration: none;">Çıkış</a>
+        </div>
+    </div>
+</body>
+
+</html>
