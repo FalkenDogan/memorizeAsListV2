@@ -9,7 +9,11 @@
 </head>
 <body>
   <div class="container" style="text-align: center;">
+        <button id="closeButton" class="close-button">X</button>
+      <h2 style="color: #4CAF50;">Mirroring Page</h2>
     <div class="scroll-menu">
+
+  
       <div class="section-header">Deutsch Wörter Lernen</div>
 
       <button onclick="window.open('audio/fuehren.mp3', '_blank')">Führen</button>
@@ -24,8 +28,13 @@
       <button onclick="window.open('audio/treiben.mp3', '_blank')">Treiben</button>
       <button onclick="window.open('audio/woran-daran.mp3', '_blank')">Woran-Daran</button>
       <button onclick="window.open('audio/zeit-woerter.mp3', '_blank')">Zeit Wörter</button>
-      <button onclick="window.open('audio/juristischeBegriffe.mp3', '_blank')">juristische Begriffe</button>
+      <button onclick="window.open('audio/juristischeBegriffe.mp3', '_blank')">Juristische Begriffe</button>
     </div>
   </div>
+  <script>
+    document.getElementById('closeButton').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
 </body>
 </html>
