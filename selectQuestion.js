@@ -65,6 +65,6 @@ document.getElementById('startFlashcard').addEventListener('click', function () 
 });
 // Close the window
 document.getElementById('closeButton').addEventListener('click', () => {
-  window.location.href = 'sheetToJson.html';
+  window.location.href = 'index.html';
 });
 

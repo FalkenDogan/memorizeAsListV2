@@ -1,3 +1,6 @@
+//sheetToJson.js
+// Convert Google Sheets URL to CSV link
+
 function convertToCsvLink(sheetUrl) {
   const regexWithGid = /https:\/\/docs\.google\.com\/spreadsheets\/d\/([a-zA-Z0-9-_]+)\/.*gid=([0-9]+)/;
   const regexWithUsp = /https:\/\/docs\.google\.com\/spreadsheets\/d\/([a-zA-Z0-9-_]+)\/edit\?usp=drivesdk/;

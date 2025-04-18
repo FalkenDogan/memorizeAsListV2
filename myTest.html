@@ -11,17 +11,30 @@
 
 <body>
   <div class="container" style="text-align: center;">
-    <h1>Welcome to Quiz App</h1>
+    <button id="closeButton" class="close-button">X</button>
+    <h1>My Own Tests</h1>
     <!-- Form to get Google Sheets link from the user -->
     <div id="link-form">
       <label for="sheet-link">Insert Google Sheets Link</label><br>
-      <input type="text" id="sheet-link" placeholder="https://docs.google.com/spreadsheets/d/...">
+      <input type="text" id="sheet-link">
       <br>
       <button id="generate-json" class="button">Send</button>
     </div>
+  <!-- Footer Links (Çerçevenin dışında) -->
+  <div class="footer-links">
+    <h3>How to use this page?</h3>
+    <a href="usage_tr.html">
+      <img src="pics/turkish-flag.png" alt="Turkish Flag"> (TR)
+
+    </a>
+    <a href="usage_en.html">
+      <img src="pics/english-flag.png" alt="English Flag"> (EN)
+    </a>
 
   </div>
-  <script src="sheetToJson.js"></script>
+ 
+  </div>
+  <script src="myTest.js"></script>
 </body>
 
 </html>
