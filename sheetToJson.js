@@ -68,3 +68,5 @@ document.querySelectorAll('#generate-json').forEach(button => {
 document.getElementById('closeButton').addEventListener('click', () => {
   window.location.href = 'index.html';
 });
+
+

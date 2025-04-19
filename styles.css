@@ -291,3 +291,53 @@ li {
   text-align: center;
   font-size: 1.2em;
 }
+
+
+.container {
+  max-width: 400px;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+  
+.accordion-header {
+  font-size: 1.5em;
+  color: #333;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #ddd;
+}
+
+.accordion-content {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  display: none;
+}
+
+.accordion-content button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 1em;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-content button:hover {
+  background-color: #0056b3;
+}

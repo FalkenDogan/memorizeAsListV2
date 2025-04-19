@@ -1,3 +1,4 @@
+<!--sheetToJson.html-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,21 +8,15 @@
   <title>Quiz App</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="pics/logo.png" type="image/png">
-  <style>
   
-
-  </style>
 </head>
-
 <body>
   <div class="container" style="text-align: center;">
     <button id="closeButton" class="close-button">X</button>
     <h2 style="color: #4CAF50;">Memorizing Page</h2>
-    <div class="scroll-menu">
-      
-    <button class="accordion-header">Trenbare Verben</button>
-    <div class="accordion-content" id="deutsch-lernen">
-      <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=1486663862#gid=1486663862">Führen</button>
+      <div class="scroll-menu">
+        <div class="section-header">Trenbare Verben</div>
+        <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=1486663862#gid=1486663862">Führen</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=543638373#gid=543638373">Geben</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=835149936#gid=835149936">Gehen</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=1660008158#gid=1660008158">Halten</button>
@@ -31,65 +26,25 @@
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=0#gid=0">Setzen</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=1415452522#gid=1415452522">Teilen</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=352211270#gid=352211270">Treiben</button>
-    </div>
 
-      <button class="accordion-header">Pronominaladverbien</button>
-      <div class="accordion-content" id="deutsch-lernen">
+        <div class="section-header">Pronominaladverbien</div>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1rVZ7lyUQVjZj-b1Te4MQq9Zho9YGJRT3R_P03KpcaVg/edit?gid=0#gid=0">Woran Daran</button>
-      </div>
-
-
-      <button class="accordion-header">Zeit Wörter</button>
-      <div class="accordion-content" id="deutsch-lernen">
+        <div class="section-header">Zeit Wörter</div>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1WHIlCzl9zbxI8248D0PyGMOw2HJruotJUpHikVC38Y4/edit?gid=0#gid=0">Zeit Wörter</button>
-      </div>
-
-      <button class="accordion-header">Verben mit Akk-Dativ</button>
-      <div class="accordion-content" id="deutsch-lernen">
+        <div class="section-header">Verben mit Akk-Dativ</div>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=263792903#gid=263792903">Verben mit Akkusativ</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=696888047#gid=696888047">Verben mit Dativ</button>
-      </div>
-
-      <button class="accordion-header">Verben mit Prepositionen</button>
-      <div class="accordion-content" id="deutsch-lernen">
+        <div class="section-header">Verben mit Prepositionen</div>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=1314452751#gid=1314452751">Verben mit Prepositionen Dativ</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=2133419906#gid=2133419906">Verben mit Prepositionen Akkusativ</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=274192197#gid=274192197">Verben mit Prepositionen Akkusativ-Dativ</button>
-      </div>
-
-      <button class="accordion-header">Instagram</button>
-      <div class="accordion-content" id="deutsch-lernen">
+       
+        <div class="section-header">Instagram</div>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kiKWxExaaF74gbqRYdWrwexbDC_TZ-kOWjVLLuvcIlc/edit?gid=1901053947#gid=1901053947">Insta Hochdeutschhochturkce</button>
         <button id="generate-json" data-link="https://docs.google.com/spreadsheets/d/1kiKWxExaaF74gbqRYdWrwexbDC_TZ-kOWjVLLuvcIlc/edit?gid=1720778446#gid=1720778446">Insta Micheda</button>      
-      </div>
-
-
-  </div>
+ </div>
 </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const headers = document.querySelectorAll('.accordion-header');
-      headers.forEach(header => {
-        header.addEventListener('click', function () {
-          const currentContent = this.nextElementSibling;
 
-          // Close all other contents
-          document.querySelectorAll('.accordion-content').forEach(content => {
-            if (content !== currentContent) {
-              content.style.display = 'none';
-            }
-          });
-
-          // Toggle current content
-          if (currentContent.style.display === 'block') {
-            currentContent.style.display = 'none';
-          } else {
-            currentContent.style.display = 'block';
-          }
-        });
-      });
-    });
-  </script>
   <script src="sheetToJson.js"></script>
 </body>
 
