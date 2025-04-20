@@ -172,6 +172,12 @@ input[type="number"] {
   overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+@media (max-width: 768px) {
+  .usage_container {
+    padding: 40px 20px 40px 80px; /* Add more padding to the left for smaller screens */
+  }
+}
+
 .usage_h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
