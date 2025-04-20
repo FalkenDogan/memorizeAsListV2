@@ -163,7 +163,7 @@ input[type="number"] {
 
 .usage_container {
   background-color: #fff;
-  padding: 40px 60px;
+  padding: 40px 55px; /* Reduced padding by 5px on the left and right */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 800px;
@@ -174,7 +174,7 @@ input[type="number"] {
 
 @media (max-width: 768px) {
   .usage_container {
-    padding: 40px 20px 40px 80px; /* Add more padding to the left for smaller screens */
+    padding: 40px 15px 40px 75px; /* Reduced padding by 5px on the left for smaller screens */
   }
 }
 
