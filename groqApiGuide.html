@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groq API Guide / Rehberi</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="pics/logo.png" type="image/png">
+</head>
+
+<body class="usage_body">
+  <div class="usage_container" style="position: relative;">
+    <button id="closeButton" class="close-button" onclick="window.location.href='index.html'">X</button>
+    
+    <h1 style="margin-bottom: 20px; font-size: 2.2em;">Groq API Guide / Rehberi</h1>
+
+    <!-- Language Selector -->
+    <div class="lang-switch-container">
+      <button id="btnTr" class="lang-switch-btn active">Türkçe</button>
+      <button id="btnEn" class="lang-switch-btn">English</button>
+    </div>
+
+    <!-- Turkish Content -->
+    <div id="contentTr" class="lang-content">
+      <h2>Groq API Anahtarı Nasıl Alınır?</h2>
+      <p>Aşağıdaki basit adımları takip ederek yapay zeka özelliğinde kullanmak üzere ücretsiz bir Groq API anahtarı edinebilirsiniz:</p>
+      
+      <div class="guide-step">
+        <strong>1. Konsola Gidin:</strong>
+        <p><a href="https://console.groq.com" target="_blank">console.groq.com</a> adresini ziyaret edin.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>2. Giriş Yapın / Kaydolun:</strong>
+        <p>Google veya GitHub hesabınızla hızlıca giriş yapın ya da yeni bir e-posta adresiyle kaydolun.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>3. API Keys Bölümüne Geçin:</strong>
+        <p>Sol taraftaki menü çubuğundan <strong>"API Keys"</strong> seçeneğine tıklayın.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>4. Yeni Anahtar Oluşturun:</strong>
+        <p>Açılan sayfada yeşil renkli <strong>"Create API Key"</strong> butonuna tıklayın.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>5. Anahtarı İsimlendirin ve Kaydedin:</strong>
+        <p>Anahtarınıza bir isim verin (örneğin: <code>Quiz App</code>) ve <strong>"Create"</strong> butonuna basarak anahtarınızı oluşturun.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>6. Anahtarı Kopyalayın:</strong>
+        <p>Ekranda beliren API anahtarınızı (genellikle <code>gsk_</code> ile başlar) kopyalayın. Güvenliğiniz için bu anahtarı başka bir yerde göremeyeceğiniz için hemen kopyaladığınızdan emin olun.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>7. Uygulamada Kullanın:</strong>
+        <p>Kopyaladığınız anahtarı "Learn with AI" sayfasındaki <strong>"Insert Groq API"</strong> kutusuna yapıştırın. Sistem anahtarı otomatik test edecek ve geçerliyse yeşil bir onay işareti gösterecektir.</p>
+      </div>
+
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; border-left: 5px solid #4CAF50; margin-top: 20px; font-size: 0.95em;">
+        <strong>💡 Önemli Not:</strong> Groq API kullanımı bireysel geliştiriciler ve denemeler için belirli limitler dahilinde tamamen <strong>ücretsizdir</strong>. API anahtarınızı kimseyle paylaşmayınız.
+      </div>
+    </div>
+
+    <!-- English Content -->
+    <div id="contentEn" class="lang-content" style="display: none;">
+      <h2>How to Get a Groq API Key?</h2>
+      <p>Follow these simple steps to obtain a free Groq API key for the AI translation evaluation feature:</p>
+      
+      <div class="guide-step">
+        <strong>1. Go to the Console:</strong>
+        <p>Visit the Groq Console at <a href="https://console.groq.com" target="_blank">console.groq.com</a>.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>2. Sign In / Sign Up:</strong>
+        <p>Quickly log in using your Google or GitHub account, or sign up with your email address.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>3. Navigate to API Keys:</strong>
+        <p>Click on the <strong>"API Keys"</strong> option in the left sidebar menu.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>4. Create a Key:</strong>
+        <p>Click the green <strong>"Create API Key"</strong> button on the top right.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>5. Name and Generate:</strong>
+        <p>Enter a name for your key (e.g., <code>Quiz App</code>) and click the <strong>"Create"</strong> button.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>6. Copy Your API Key:</strong>
+        <p>Copy the generated key (usually starts with <code>gsk_</code>). Make sure to copy it immediately, as it won't be shown again for security reasons.</p>
+      </div>
+
+      <div class="guide-step">
+        <strong>7. Paste in the Application:</strong>
+        <p>Paste the copied key into the <strong>"Insert Groq API"</strong> text box on the "Learn with AI" page. The app will verify it and display a green checkmark if successful.</p>
+      </div>
+
+      <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; border-left: 5px solid #4CAF50; margin-top: 20px; font-size: 0.95em;">
+        <strong>💡 Note:</strong> Using the Groq API is completely <strong>free</strong> within standard rate limits for developers. Never share your API key with anyone.
+      </div>
+    </div>
+
+    <!-- Back to Index Button -->
+    <div style="text-align: center; margin-top: 25px;">
+      <button onclick="window.location.href='index.html'" class="button">Geri / Back</button>
+    </div>
+
+  </div>
+
+  <script>
+    const btnTr = document.getElementById('btnTr');
+    const btnEn = document.getElementById('btnEn');
+    const contentTr = document.getElementById('contentTr');
+    const contentEn = document.getElementById('contentEn');
+
+    function switchLanguage(lang) {
+      if (lang === 'tr') {
+        btnTr.classList.add('active');
+        btnEn.classList.remove('active');
+        contentTr.style.display = 'block';
+        contentEn.style.display = 'none';
+      } else {
+        btnEn.classList.add('active');
+        btnTr.classList.remove('active');
+        contentEn.style.display = 'block';
+        contentTr.style.display = 'none';
+      }
+    }
+
+    btnTr.addEventListener('click', () => switchLanguage('tr'));
+    btnEn.addEventListener('click', () => switchLanguage('en'));
+
+    // Auto-detect browser language
+    const browserLang = (navigator.language || navigator.userLanguage || 'tr').split('-')[0].toLowerCase();
+    if (browserLang === 'tr') {
+      switchLanguage('tr');
+    } else {
+      switchLanguage('en');
+    }
+  </script>
+</body>
+
+</html>

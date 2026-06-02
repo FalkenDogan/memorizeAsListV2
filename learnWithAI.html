@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn with AI - Quiz App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="pics/logo.png" type="image/png">
+</head>
+
+<body>
+  <div class="container ai-container">
+    <button id="closeButton" class="close-button">X</button>
+    <h1>Learn with AI</h1>
+
+    <!-- API Key Input Section -->
+    <div class="api-wrapper">
+      <div class="api-input-container">
+        <input type="text" id="groqApiKey" placeholder="Insert Groq API">
+        <div class="api-status-icon" id="apiStatusIcon"></div>
+      </div>
+      <div class="api-error-message" id="apiErrorMessage"></div>
+    </div>
+
+    <!-- Collapsible settings toggle -->
+    <button class="ai-settings-toggle" id="toggleSettings">⚙️ AI Settings</button>
+    
+    <!-- Collapsible Settings Panel -->
+    <div class="ai-settings-panel" id="settingsPanel">
+      <div class="setting-group">
+        <label for="groqModel">Model</label>
+        <input type="text" id="groqModel" value="openai/gpt-oss-120b">
+      </div>
+      <div class="setting-group">
+        <label for="feedbackLanguage">Feedback Language</label>
+        <select id="feedbackLanguage">
+          <option value="tr">Türkçe</option>
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="ru">Русский</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="it">Italiano</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Question block -->
+    <p id="questionNumber">Question number: Loading...</p>
+    <div class="ai-question-card">
+      <div class="ai-question-title">Translate this sentence:</div>
+      <div class="ai-question-text" id="questionText">Loading...</div>
+    </div>
+
+    <!-- Forward/Backward navigation arrows (English text) -->
+    <div class="ai-nav-container">
+      <button id="prevQuestion" class="ai-nav-button" disabled>← Back</button>
+      <button id="nextQuestion" class="ai-nav-button" disabled>Next →</button>
+    </div>
+
+    <!-- Translation submission area -->
+    <div>
+      <textarea id="userAnswer" class="ai-answer-textarea" placeholder="Type your translation here..." disabled></textarea>
+      <button id="submitAnswer" class="ai-submit-button" disabled>Submit Translation</button>
+    </div>
+
+    <!-- Loading Feedback Skeleton -->
+    <div class="ai-loading-skeleton" id="loadingSkeleton">
+      <div class="ai-loading-header"></div>
+      <div class="ai-loading-line medium"></div>
+      <div class="ai-loading-line"></div>
+      <div class="ai-loading-line short"></div>
+    </div>
+
+    <!-- AI Feedback Output -->
+    <div class="ai-evaluation-container" id="evaluationContainer">
+      <div class="ai-evaluation-header">
+        <span>🤖 AI Evaluation</span>
+      </div>
+      <div class="ai-evaluation-body" id="evaluationBody"></div>
+    </div>
+
+  </div>
+
+  <script src="learnWithAI.js"></script>
+</body>
+
+</html>

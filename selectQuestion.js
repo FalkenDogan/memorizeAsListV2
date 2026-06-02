@@ -63,6 +63,29 @@ document.getElementById('startFlashcard').addEventListener('click', function () 
 
   window.location.href = 'flashcard.html'; // Redirect to flashcard page
 });
+
+// Start Learn with AI process
+document.getElementById('startLearnWithAI').addEventListener('click', function () {
+  const startInput = document.getElementById('startQuestion').value;
+  const endInput = document.getElementById('endQuestion').value;
+  const start = parseInt(startInput) - 1; // Adjust user input to indices
+  const end = parseInt(endInput);
+
+  if (isNaN(start) || isNaN(end) || start < 0 || end > quizData.length || start >= end) {
+    alert('Please enter a valid start and end value.');
+    return;
+  }
+
+  // Save selected range to localStorage
+  localStorage.setItem('startQuestion', start);
+  localStorage.setItem('endQuestion', end);
+
+  // Save selected questions to localStorage
+  const selectedQuizData = quizData.slice(start, end);
+  localStorage.setItem('selectedQuizData', JSON.stringify(selectedQuizData));
+
+  window.location.href = 'learnWithAI.html'; // Redirect to learnWithAI page
+});
 // Close the window
 document.getElementById('closeButton').addEventListener('click', () => {
   window.location.href = 'index.html';
