@@ -3,7 +3,7 @@
 let selectedQuizData = [];
 let currentIndex = 0;
 
-// DOM Elements
+// DOM Elements - Safe references with null checks
 const closeButton = document.getElementById('closeButton');
 
 const questionNumberText = document.getElementById('questionNumber');
@@ -17,6 +17,10 @@ const submitAnswerBtn = document.getElementById('submitAnswer');
 const loadingSkeleton = document.getElementById('loadingSkeleton');
 const evaluationContainer = document.getElementById('evaluationContainer');
 const evaluationBody = document.getElementById('evaluationBody');
+
+// Optional DOM Elements (may not exist in all pages)
+const groqModelSelect = document.getElementById('groqModel');
+const feedbackLanguageSelect = document.getElementById('feedbackLanguage');
 
 // Language Names Mapping for System Prompts
 const languageNames = {
@@ -57,14 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Restore Settings from LocalStorage
   const storedApiKey = localStorage.getItem('groq_api_key') || '';
 
-  // Event Listeners
-  closeButton.addEventListener('click', () => {
-    window.location.href = 'selectQuestion.html';
-  });
+  // Event Listeners - Only add if elements exist
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      window.location.href = 'selectQuestion.html';
+    });
+  }
 
-  prevQuestionBtn.addEventListener('click', showPreviousQuestion);
-  nextQuestionBtn.addEventListener('click', showNextQuestion);
-  submitAnswerBtn.addEventListener('click', submitTranslation);
+  if (prevQuestionBtn) {
+    prevQuestionBtn.addEventListener('click', showPreviousQuestion);
+  }
+
+  if (nextQuestionBtn) {
+    nextQuestionBtn.addEventListener('click', showNextQuestion);
+  }
+
+  if (submitAnswerBtn) {
+    submitAnswerBtn.addEventListener('click', submitTranslation);
+  }
 
   // Render first question
   renderQuestion();
@@ -73,18 +87,40 @@ document.addEventListener('DOMContentLoaded', () => {
 // Render current question
 function renderQuestion() {
   const current = selectedQuizData[currentIndex];
-  questionNumberText.innerText = `Question number: ${currentIndex + 1}/${selectedQuizData.length}`;
-  questionText.innerText = current.question;
-  userAnswerTextarea.value = '';
+  
+  if (questionNumberText) {
+    questionNumberText.innerText = `Question number: ${currentIndex + 1}/${selectedQuizData.length}`;
+  }
+  
+  if (questionText) {
+    questionText.innerText = current.question;
+  }
+  
+  if (userAnswerTextarea) {
+    userAnswerTextarea.value = '';
+  }
 
   // Hide Evaluation and Loading elements
-  evaluationContainer.style.display = 'none';
-  evaluationBody.innerHTML = '';
-  loadingSkeleton.style.display = 'none';
+  if (evaluationContainer) {
+    evaluationContainer.style.display = 'none';
+  }
+  
+  if (evaluationBody) {
+    evaluationBody.innerHTML = '';
+  }
+  
+  if (loadingSkeleton) {
+    loadingSkeleton.style.display = 'none';
+  }
 
   // Navigation button states
-  prevQuestionBtn.disabled = (currentIndex === 0);
-  nextQuestionBtn.disabled = (currentIndex === selectedQuizData.length - 1);
+  if (prevQuestionBtn) {
+    prevQuestionBtn.disabled = (currentIndex === 0);
+  }
+  
+  if (nextQuestionBtn) {
+    nextQuestionBtn.disabled = (currentIndex === selectedQuizData.length - 1);
+  }
 }
 
 // Navigation Actions
@@ -301,6 +337,11 @@ async function submitTranslation() {
     return;
   }
 
+  if (!userAnswerTextarea) {
+    alert('Error: Translation text area not found.');
+    return;
+  }
+
   const answer = userAnswerTextarea.value.trim();
   if (!answer) {
     alert('Please type your translation first.');
@@ -312,15 +353,34 @@ async function submitTranslation() {
   const feedbackLang = localStorage.getItem('feedback_language') || 'en';
 
   // UI state for loading
-  evaluationContainer.style.display = 'none';
-  evaluationBody.innerHTML = '';
-  loadingSkeleton.style.display = 'block';
+  if (evaluationContainer) {
+    evaluationContainer.style.display = 'none';
+  }
+  
+  if (evaluationBody) {
+    evaluationBody.innerHTML = '';
+  }
+  
+  if (loadingSkeleton) {
+    loadingSkeleton.style.display = 'block';
+  }
 
   // Disable controls during request
-  userAnswerTextarea.disabled = true;
-  submitAnswerBtn.disabled = true;
-  prevQuestionBtn.disabled = true;
-  nextQuestionBtn.disabled = true;
+  if (userAnswerTextarea) {
+    userAnswerTextarea.disabled = true;
+  }
+  
+  if (submitAnswerBtn) {
+    submitAnswerBtn.disabled = true;
+  }
+  
+  if (prevQuestionBtn) {
+    prevQuestionBtn.disabled = true;
+  }
+  
+  if (nextQuestionBtn) {
+    nextQuestionBtn.disabled = true;
+  }
 
   try {
     const prompt = buildEvaluationPrompt(question, answer, feedbackLang);
@@ -346,23 +406,44 @@ async function submitTranslation() {
     if (response.ok) {
       const content = responseData.choices[0].message.content;
       // Render AI output
-      evaluationBody.textContent = content.toString();
-      evaluationContainer.style.display = 'block';
+      if (evaluationBody) {
+        evaluationBody.textContent = content.toString();
+      }
+      if (evaluationContainer) {
+        evaluationContainer.style.display = 'block';
+      }
     } else {
       const errMsg = responseData.error?.message || 'Unknown error';
       throw new Error(`Groq API Hatası: ${errMsg} (${response.status})`);
     }
   } catch (err) {
-    evaluationBody.innerHTML = `<span style="color: #f44336; font-weight: bold;">Hata:</span> ${err.message}`;
-    evaluationContainer.style.display = 'block';
+    if (evaluationBody) {
+      evaluationBody.innerHTML = `<span style="color: #f44336; font-weight: bold;">Hata:</span> ${err.message}`;
+    }
+    if (evaluationContainer) {
+      evaluationContainer.style.display = 'block';
+    }
   } finally {
     // Hide Loading Spinner
-    loadingSkeleton.style.display = 'none';
+    if (loadingSkeleton) {
+      loadingSkeleton.style.display = 'none';
+    }
 
     // Re-enable controls
-    userAnswerTextarea.disabled = false;
-    submitAnswerBtn.disabled = false;
-    prevQuestionBtn.disabled = (currentIndex === 0);
-    nextQuestionBtn.disabled = (currentIndex === selectedQuizData.length - 1);
+    if (userAnswerTextarea) {
+      userAnswerTextarea.disabled = false;
+    }
+    
+    if (submitAnswerBtn) {
+      submitAnswerBtn.disabled = false;
+    }
+    
+    if (prevQuestionBtn) {
+      prevQuestionBtn.disabled = (currentIndex === 0);
+    }
+    
+    if (nextQuestionBtn) {
+      nextQuestionBtn.disabled = (currentIndex === selectedQuizData.length - 1);
+    }
   }
 }
