@@ -11,7 +11,16 @@
 
 <body class="usage_body">
    
-    <div class="usage_container"> 
+    <div class="usage_container">
+        <button id="closeButton" class="close-button" onclick="window.location.href='index.html'">X</button>
+        
+        <!-- Language Selector -->
+        <div class="lang-switch-container" style="margin-bottom: 20px;">
+            <button onclick="window.location.href='usage_en.html'" class="lang-switch-btn active">English</button>
+            <button onclick="window.location.href='usage_tr.html'" class="lang-switch-btn">Türkçe</button>
+            <button onclick="window.location.href='usage_de.html'" class="lang-switch-btn">Deutsch</button>
+        </div>
+        
         <h1 class="usage_h1">My Own Tests User Guide</h1>
         <h2 class="usage_h2">Introduction</h2>
         <p>Quiz App is an application that helps you easily create quizzes using Google Sheets. This guide explains

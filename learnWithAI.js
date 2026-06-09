@@ -2,18 +2,9 @@
 
 let selectedQuizData = [];
 let currentIndex = 0;
-let isApiValid = false;
-let apiCheckTimeout = null;
 
 // DOM Elements
 const closeButton = document.getElementById('closeButton');
-const groqApiKeyInput = document.getElementById('groqApiKey');
-const apiStatusIcon = document.getElementById('apiStatusIcon');
-const apiErrorMessage = document.getElementById('apiErrorMessage');
-const toggleSettingsBtn = document.getElementById('toggleSettings');
-const settingsPanel = document.getElementById('settingsPanel');
-const groqModelInput = document.getElementById('groqModel');
-const feedbackLanguageSelect = document.getElementById('feedbackLanguage');
 
 const questionNumberText = document.getElementById('questionNumber');
 const questionText = document.getElementById('questionText');
@@ -65,143 +56,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Restore Settings from LocalStorage
   const storedApiKey = localStorage.getItem('groq_api_key') || '';
-  const storedModel = localStorage.getItem('groq_model') || 'openai/gpt-oss-120b';
-  const storedLang = localStorage.getItem('feedback_language') || defaultLang;
-
-  groqApiKeyInput.value = storedApiKey;
-  groqModelInput.value = storedModel;
-  feedbackLanguageSelect.value = storedLang;
 
   // Event Listeners
   closeButton.addEventListener('click', () => {
     window.location.href = 'selectQuestion.html';
   });
 
-  toggleSettingsBtn.addEventListener('click', toggleSettings);
-
-  groqApiKeyInput.addEventListener('input', () => {
-    clearTimeout(apiCheckTimeout);
-    apiCheckTimeout = setTimeout(() => {
-      testApiKey(groqApiKeyInput.value.trim());
-    }, 600);
-  });
-
-  groqModelInput.addEventListener('change', () => {
-    localStorage.setItem('groq_model', groqModelInput.value.trim());
-  });
-
-  feedbackLanguageSelect.addEventListener('change', () => {
-    localStorage.setItem('feedback_language', feedbackLanguageSelect.value);
-  });
-
   prevQuestionBtn.addEventListener('click', showPreviousQuestion);
   nextQuestionBtn.addEventListener('click', showNextQuestion);
   submitAnswerBtn.addEventListener('click', submitTranslation);
 
-  // Trigger initial key test if key exists
-  if (storedApiKey) {
-    testApiKey(storedApiKey);
-  } else {
-    updateApiStatus('empty');
-  }
-
   // Render first question
   renderQuestion();
 });
-
-// Settings Panel Collapse Toggle
-function toggleSettings() {
-  settingsPanel.classList.toggle('show');
-  if (settingsPanel.classList.contains('show')) {
-    toggleSettingsBtn.innerText = '⚙️ Hide Settings';
-  } else {
-    toggleSettingsBtn.innerText = '⚙️ AI Settings';
-  }
-}
-
-// Update API key check state
-function updateApiStatus(status, message = '') {
-  apiStatusIcon.innerHTML = '';
-  apiErrorMessage.style.display = 'none';
-
-  if (status === 'loading') {
-    const spinner = document.createElement('div');
-    spinner.className = 'spinner';
-    apiStatusIcon.appendChild(spinner);
-    disableInteraction(true);
-  } else if (status === 'success') {
-    const tick = document.createElement('span');
-    tick.className = 'tick';
-    tick.innerText = '✔';
-    apiStatusIcon.appendChild(tick);
-    isApiValid = true;
-    disableInteraction(false);
-  } else if (status === 'error') {
-    const cross = document.createElement('span');
-    cross.className = 'cross';
-    cross.innerText = '✘';
-    apiStatusIcon.appendChild(cross);
-    apiErrorMessage.innerText = message;
-    apiErrorMessage.style.display = 'block';
-    isApiValid = false;
-    disableInteraction(true);
-  } else {
-    // empty or reset
-    isApiValid = false;
-    disableInteraction(true);
-  }
-}
-
-// Disable/Enable translation actions
-function disableInteraction(disable) {
-  userAnswerTextarea.disabled = disable;
-  submitAnswerBtn.disabled = disable;
-  if (disable) {
-    userAnswerTextarea.placeholder = 'Please insert a valid Groq API key to start...';
-  } else {
-    userAnswerTextarea.placeholder = 'Type your translation here...';
-  }
-}
-
-// Test Groq API Key
-async function testApiKey(apiKey) {
-  if (!apiKey) {
-    updateApiStatus('empty');
-    localStorage.removeItem('groq_api_key');
-    return;
-  }
-
-  updateApiStatus('loading');
-
-  try {
-    // We send a minimal completions request using llama-3.1-8b-instant to test key validity.
-    // Llama-3.1-8b-instant is guaranteed to be present and active for all API key tiers.
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify({
-        model: 'llama-3.1-8b-instant',
-        messages: [{ role: 'user', content: 'ping' }],
-        max_tokens: 1
-      })
-    });
-
-    const responseData = await response.json();
-
-    if (response.ok) {
-      updateApiStatus('success');
-      localStorage.setItem('groq_api_key', apiKey);
-    } else {
-      const errMsg = responseData.error?.message || 'Invalid API Key';
-      updateApiStatus('error', `Groq API Hatası: ${errMsg}`);
-    }
-  } catch (err) {
-    updateApiStatus('error', `İstek hatası: ${err.message}`);
-  }
-}
 
 // Render current question
 function renderQuestion() {
@@ -375,6 +242,29 @@ Altri modi per dire questa frase nella vita di tutti i giorni:
 - Se presenti (alternativa 4)
 
 Fornisci le risposte in italiano con uno stile gentile, incoraggiante e costruttivo. NON USARE MARKDOWN, GRASSETTO, TABELLE O CARATTERI SPECIALI.`;
+  } else if (feedbackLang === 'ar') {
+    return `دورك هو أستاذ لغة. المستخدم ترجم الجملة التالية:
+
+"${question}"
+
+على النحو التالي:
+
+"${userAnswer}"
+
+يرجى تقييم اللغة والتهجئة بأدب بناءً على الجملة المترجمة. مهم: يرجى تقديم الإجابة بدون استخدام MARKDOWN، فقط بنص نظيف وواضح. تناول النقاط التالية:
+
+1. فحص القواعد النحوية
+تحقق مما إذا كانت الترجمة من اللغة المصدر إلى اللغة المستهدفة صحيحة نحويًا. النتيجة: صحيح / غير صحيح
+الشرح: (إذا كان هناك أخطاء، اشرح)
+
+2. بدائل المحادثة اليومية
+طرق أخرى للتعبير عن هذه الجملة في الحياة اليومية:
+- (بديل 1)
+- (بديل 2)
+- إن وجد (بديل 3)
+- إن وجد (بديل 4)
+
+قدم الإجابات باللغة العربية بأسلوب مهذب وتشجيعي وبناء. لا تستخدم MARKDOWN أو الخط الغامق أو الجداول أو الأحرف الخاصة.`;
   } else {
     // English (Default)
     return `Your role is a language teacher. The user translated the following sentence:
@@ -404,8 +294,10 @@ Give the answers in English in a polite, encouraging, and constructive style. DO
 
 // Submit answer to AI for evaluation
 async function submitTranslation() {
-  if (!isApiValid) {
-    alert('Please insert a valid Groq API key.');
+  const apiKey = localStorage.getItem('groq_api_key') || '';
+  
+  if (!apiKey) {
+    alert('Please insert a valid Groq API key. Go to Groq API Guide page to get your API key.');
     return;
   }
 
@@ -416,9 +308,8 @@ async function submitTranslation() {
   }
 
   const question = selectedQuizData[currentIndex].question;
-  const apiKey = groqApiKeyInput.value.trim();
-  const model = groqModelInput.value.trim() || 'openai/gpt-oss-120b';
-  const feedbackLang = feedbackLanguageSelect.value;
+  const model = localStorage.getItem('groq_model') || 'openai/gpt-oss-120b';
+  const feedbackLang = localStorage.getItem('feedback_language') || 'en';
 
   // UI state for loading
   evaluationContainer.style.display = 'none';

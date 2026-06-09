@@ -14,38 +14,6 @@
     <button id="closeButton" class="close-button">X</button>
     <h1>Learn with AI</h1>
 
-    <!-- API Key Input Section -->
-    <div class="api-wrapper">
-      <div class="api-input-container">
-        <input type="text" id="groqApiKey" placeholder="Insert Groq API">
-        <div class="api-status-icon" id="apiStatusIcon"></div>
-      </div>
-      <div class="api-error-message" id="apiErrorMessage"></div>
-    </div>
-
-    <!-- Collapsible settings toggle -->
-    <button class="ai-settings-toggle" id="toggleSettings">⚙️ AI Settings</button>
-    
-    <!-- Collapsible Settings Panel -->
-    <div class="ai-settings-panel" id="settingsPanel">
-      <div class="setting-group">
-        <label for="groqModel">Model</label>
-        <input type="text" id="groqModel" value="openai/gpt-oss-120b">
-      </div>
-      <div class="setting-group">
-        <label for="feedbackLanguage">Feedback Language</label>
-        <select id="feedbackLanguage">
-          <option value="tr">Türkçe</option>
-          <option value="en">English</option>
-          <option value="de">Deutsch</option>
-          <option value="ru">Русский</option>
-          <option value="fr">Français</option>
-          <option value="es">Español</option>
-          <option value="it">Italiano</option>
-        </select>
-      </div>
-    </div>
-
     <!-- Question block -->
     <p id="questionNumber">Question number: Loading...</p>
     <div class="ai-question-card">
@@ -61,8 +29,8 @@
 
     <!-- Translation submission area -->
     <div>
-      <textarea id="userAnswer" class="ai-answer-textarea" placeholder="Type your translation here..." disabled></textarea>
-      <button id="submitAnswer" class="ai-submit-button" disabled>Submit Translation</button>
+      <textarea id="userAnswer" class="ai-answer-textarea" placeholder="Type your translation here..."></textarea>
+      <button id="submitAnswer" class="ai-submit-button">Submit Translation</button>
     </div>
 
     <!-- Loading Feedback Skeleton -->
