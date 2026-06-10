@@ -153,9 +153,9 @@ Lütfen cevap cümlesine göre dilin ve yazımı nazik bir şekilde değerlendir
 
 1. Dilbilgisi Kontrolü
 Cümlenin kaynak dilinden hedef dile çevirisinin dilbilgisi açısından doğru olup olmadığını kontrol et. Sonuç: Doğru / Hatalı 
-Açıklama: (eğer hata varsa açıkla)
+Açıklama: (eğer hata varsa açıkla ve doğru cümleyi yaz)
 
-2. Günlük Konuşma Alternatifi
+2. Hedef Dildeki Günlük Konuşma Alternatifi
 Bu cümlenin günlük hayatta söylenebilecek başka şekilleri:
 - (alternatif 1)
 - (alternatif 2)
