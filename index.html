@@ -1,42 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz App</title>
+  <title>CBJ Quiz App - Kelime Ezberleme & Pratik</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="pics/logo.png" type="image/png">
   <style>
-   
-    .container button {
-      display: block;
-      width: 200px;
-      margin: 10px auto;
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #ffffff;
-      background-color: #007bff; /* Mavi */
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    .welcome-card {
+      text-align: center;
     }
-
-    .container button:hover {
-      background-color: #ff4500; /* Turuncu */
+    .logo-container {
+      margin-bottom: 15px;
+    }
+    .logo-img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(99, 102, 241, 0.4));
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95em;
+      margin-top: -15px;
+      margin-bottom: 25px;
+    }
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 18px;
+      font-family: var(--font-family);
+      font-size: 1.05em;
+      font-weight: 500;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+    .menu-item:hover {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+      border-color: rgba(99, 102, 241, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -5px rgba(99, 102, 241, 0.25);
+    }
+    .menu-item:active {
+      transform: translateY(0);
+    }
+    .menu-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .menu-item-title {
+      font-weight: 600;
+    }
+    .menu-item-desc {
+      font-size: 0.75em;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .menu-item-arrow {
+      font-size: 0.9em;
+      color: var(--text-muted);
+      transition: transform 0.3s ease;
+    }
+    .menu-item:hover .menu-item-arrow {
+      transform: translateX(4px);
+      color: var(--primary);
+    }
+    .db-btn {
+      border-color: rgba(16, 185, 129, 0.2);
+    }
+    .db-btn:hover {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.15) 100%);
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 8px 20px -5px rgba(16, 185, 129, 0.25);
+    }
+    .db-btn:hover .menu-item-arrow {
+      color: var(--success);
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Welcome to CBJ Quiz App</h1>
-    <button onclick="location.href='sheetToJson.html'">Word Memorization</button>
-    <button onclick="location.href='mirroring.html'">Mirroring Practice</button>
-    <button onclick="location.href='myTest.html'">My Own Tests</button>
-    <button onclick="location.href='groqApiGuide.html'">Groq API Guide / Rehberi</button>
-    <button onclick="window.location.href='https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=2074365192#gid=2074365192'">Datenbank</button>
+  <div class="container welcome-card">
+    <div class="logo-container">
+      <img src="pics/logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none';">
+    </div>
+    <h1>CBJ Quiz App</h1>
+    <p class="subtitle">Almanca Kelime Öğrenme ve Pratik Platformu</p>
+    
+    <div class="menu-list">
+      <button class="menu-item" onclick="location.href='sheetToJson.html'">
+        <div class="menu-item-info">
+          <span class="menu-item-title">Word Memorization</span>
+          <span class="menu-item-desc">Kelime Ezberleme Kartları ve Testler</span>
+        </div>
+        <span class="menu-item-arrow">➔</span>
+      </button>
+      
+      <button class="menu-item" onclick="location.href='mirroring.html'">
+        <div class="menu-item-info">
+          <span class="menu-item-title">Mirroring Practice</span>
+          <span class="menu-item-desc">Konuşma ve Telaffuz Aynalama Çalışması</span>
+        </div>
+        <span class="menu-item-arrow">➔</span>
+      </button>
+      
+      <button class="menu-item" onclick="location.href='myTest.html'">
+        <div class="menu-item-info">
+          <span class="menu-item-title">My Own Tests</span>
+          <span class="menu-item-desc">Kendi Kelime Listelerinizi Ekleyin</span>
+        </div>
+        <span class="menu-item-arrow">➔</span>
+      </button>
+      
+      <button class="menu-item" onclick="location.href='groqApiGuide.html'">
+        <div class="menu-item-info">
+          <span class="menu-item-title">Groq API Guide / Rehberi</span>
+          <span class="menu-item-desc">Yapay Zekâ Kurulum ve Kullanım Kılavuzu</span>
+        </div>
+        <span class="menu-item-arrow">➔</span>
+      </button>
+      
+      <button class="menu-item db-btn" onclick="window.open('https://docs.google.com/spreadsheets/d/1kgq4o030nC2Zdi16KMjCkMNVDhnKTILyaSPGFdlWrxw/edit?gid=2074365192#gid=2074365192', '_blank')">
+        <div class="menu-item-info">
+          <span class="menu-item-title" style="color: var(--success);">Datenbank (Google Sheets)</span>
+          <span class="menu-item-desc">Kelime Veritabanı ve Listeleri Düzenle</span>
+        </div>
+        <span class="menu-item-arrow" style="color: var(--success);">↗</span>
+      </button>
+    </div>
   </div>
 </body>
 
